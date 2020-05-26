@@ -1,10 +1,11 @@
-# RDF Diff
+# RDFev
 
-Tool to compare RDF files.  
+Tool to compare RDF files in the N-Triples format.  
 
 ## Requirements
 
-Here are the various requirements in order to use this tool.
+Here are the various requirements in order to use this tool.   
+RDFev has only been tested on Linux systems.
 
 ### Runtime Dependencies
 * [KyotoCabinet](https://fallabs.com/kyotocabinet) (it is dynamically linked : the .so is neened in the system)
@@ -16,7 +17,7 @@ Here are the various requirements in order to use this tool.
 * OpenMP developement headers
 * [Meson build system](https://mesonbuild.com/)
 * [LZ4](https://lz4.github.io/lz4/) headers and library
-* [RocksDb](https://rocksdb.org/) static library. Compile it for your system with support for LZ4 and ZSTD and put librocksdb.a in the ./lib/ folder.
+* [RocksDb](https://rocksdb.org/) static library. Compile it for your system with support for LZ4 and ZSTD and put librocksdb.a in the ./lib/ folder. Put the rocksdb/include/ from rocksdb repos into the ./include/ folder.
 
 ### Python Requirements
 Python 3.6+ is recommended.  

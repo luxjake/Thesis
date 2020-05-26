@@ -5,14 +5,15 @@ compiler = meson.get_compiler('cpp')
 # Include directory, for all shared headers
 incdir = [include_directories('include')]
 
-# Library path
+# Library path - add libraries there
 lib_path = meson.source_root() + '/lib'
 
 # Kyoto Cabinet dependency
 kcdep = dependency('kyotocabinet')
-#kcdep = compiler.find_library('libkyotocabinet', dirs : lib_path)
 
 # RocksDB dependency
+# RocksDB sould be built separately
+# librocksdb.a should be in ./lib and RocksDB headers should be in ./include
 rockdep = compiler.find_library('librocksdb', dirs : lib_path)
 
 # RocksDB Compression lib dependencies
