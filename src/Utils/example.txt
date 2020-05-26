@@ -1,0 +1,14 @@
+# Configuration file for comparisons :
+# Each line contain 4 elements :
+# 1. The first file to compare (the oldest)
+# 2. The second file to compare (the newest)
+# 3. The kind of database used by the algorithm :
+#   - "kcondisk" for an on disk database. Slow but with low memory usage
+#   - "onmemory" for an on memory database. Faster but possibly high memory usage depending on the size of the files to compare.
+#   - "multikcondisk" an on disk database splitted into several files instead of one big one.
+#   - "rocksdb" to use rocksdb for ondisk database
+# 4. The name of the comparison, used to name the results files.
+../../yagoSchema1.tsv ../../yagoSchema2.tsv onmemory yagoSchema
+./yagoTaxonomy1.tsv ./yagoTaxonomy2.tsv onmemory yagoTaxonomy
+./yagoLabels1.tsv ./yagoLabels2.tsv ondisk yagoLabels
+./yagoFacts1.tsv ./yagoFacts2.tsv onmemory yagoFacts
