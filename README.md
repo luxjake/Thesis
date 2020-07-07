@@ -8,7 +8,7 @@ Here are the various requirements in order to use this tool.
 RDFev has only been tested on Linux systems.
 
 ### Runtime Dependencies
-* [KyotoCabinet](https://fallabs.com/kyotocabinet) (it is dynamically linked : the .so is neened in the system)
+* [KyotoCabinet](https://fallabs.com/kyotocabinet) (it is dynamically linked : the .so is needed in the system)
 * OpenMP runtime library
 
 ### Compile Dependencies
@@ -48,10 +48,33 @@ Usage template :
 ```
 ### Parameters :
 * *file1* and *file2* : the files to compare (oldest file first, newest file second)
-* *database_mode* : the kind of database used by the tool. Options are :
+* *database_mode* : the kind of database used by the tool. Options are:
     * *onmemory* : on memory database (std::unordered_map) (fast)
     * *kcondisk* : on disk hash database from the KyotoCabinet libray (slow)
     * *multikcondisk* : multiple on disk hash database (slightly faster than kcondisk for big files)
     * *rocksdb* : on disk database from the [RocksDB](https://rocksdb.org/) library. (should be faster than KyotoCabinet for large databases, and support compression via LZ4)
     * *hybrid* : on memory database for triples IDs, on disk database (rocksdb) for triples
 * *result_name* : the name that will be used by the tool to create files (on disk databases and result file) 
+
+## Docker
+
+A docker file is provided to ease the use of the tool. Thanks to Docker, RDFev can also be run on Windows.  
+
+### Build
+After having cloned this repository, run this command within RDFev's folder:  
+```bash
+docker build . -t rdfev
+```
+You may have to use *"sudo"* on Linux.
+
+### Docker usage
+
+The docker image is made to be used in interactive mode.
+You can run the image by using a command similar to this one:
+```bash
+docker run -it --rm -v "/path/to/datasets/":"/datasets" image_id
+```
+This command will open a bash terminal within the docker container. You may have to use *"sudo"* on Linux.  
+The *"-v"* option is used to mount a folder in the docker container, use this to make your RDF data available.  
+Then, you can use any commands like shown earlier in this readme, they are already added to the system path.  
+The Python scripts are located in *"/python_scripts/"* if you wish to use them.
