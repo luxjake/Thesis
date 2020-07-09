@@ -56,6 +56,31 @@ Usage template :
     * *hybrid* : on memory database for triples IDs, on disk database (rocksdb) for triples
 * *result_name* : the name that will be used by the tool to create files (on disk databases and result file) 
 
+### Output
+
+The low level diff (lowdiff) will output those numbers in the output file, in order, on the same line, separated with a white space:
+* number of additions
+* number of deletions
+* number of triples in file 2
+* number of triples in file 1
+* percentage of additions
+* percentage of deletions
+* size of the union between the two files
+
+The high level diff (highdiff and memhighdiff) will output thos numbers in a similar fashion:
+* number of triples in file 1
+* number of triples in file 2
+* number of entities change
+* number of entity additions
+* number of entity deletions
+* number of object updates
+* number of object additions
+* number of object deletions
+* number of added components
+* number of deleted components
+* the average number of triples affected by an entity change
+* the total number of components (file1 + file2)
+
 ## Docker
 
 A docker file is provided to ease the use of the tool. Thanks to Docker, RDFev can also be run on Windows.  
